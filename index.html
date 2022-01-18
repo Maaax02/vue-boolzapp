@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="sidebar">
+                <div class="personal-profile">
+                    <div class="profile-img">
+                        <img src="img/avatar_io.jpg" alt="">
+                        <h5>Nome Utente</h5>
+                    </div>
+                    <div class="utilities">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="notification">
+                    <div class="inner-text">
+                        <div class="bell"><i class="fas fa-bell-slash"></i></div>
+                        <div class="text">Ricevi nuove notifiche di messaggi <span>Attiva notifiche desktop</span></div>
+                    </div>
+                </div>
+                <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                <div v-for="(person, i) in contacts" class="container-contact">
+                    <div class="images">
+                        <img :src="contacts[i].avatar" alt="">{{person.name}}
+                    </div>
+                </div>
+            </div>
+            <main>
+                <div class="nav-main">
+                    <div class="personal-profile">
+                        <div class="profile-img">
+                            <img src="img/avatar_1.jpg" alt="">
+
+                            <div class="nav-propic-text">
+                                <h5>Michele</h5>
+                                <span class="gray">Ultimo accesso oggi alle:</span>
+                            </div>
+
+                        </div>
+
+                        <div class="utilities">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <div class="container-message">
+                        <div v-for="(testo, k) in contacts[0].messages" :class="mex(status)">{{testo.text}}</div>
+                    </div>
+                </div>    
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

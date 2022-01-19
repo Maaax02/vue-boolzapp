@@ -14,6 +14,7 @@
 .sidebar{
     margin-left: 100px;
     width: 320px;
+    background-color: #F8F7F7;
 }
 
 .personal-profile{
@@ -85,9 +86,24 @@
 }
 
 .sidebar input{
-    width: 300px;
-    margin: 10px 10px;
-   
+    width: 280px;
+    border: none;
+    border-radius: 2px;
+}
+
+.inner-search i{
+    padding-left: 6px;
+    color: #AFB1B3;
+    width: 5px;
+}
+
+.inner-search{
+    height: 20px;
+    margin: 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
 }
 
 .container-contact{
@@ -95,14 +111,29 @@
     margin: 10px auto;
 }
 
+.images{
+    display: flex;
+    height: 60px;
+}
+
+.images span{
+    padding-top: 8px;
+}
+
 .images img{
-    width: 40px;
     border-radius: 50%;
+    margin-right: 15px;
 }
 
 main{
     width: 900px;
     background-image: url("../img/mine.jpg");
+    position: relative;
+}
+
+.overflow{
+    overflow: auto;
+    height: 550px;
 }
 
 .gray{
@@ -120,13 +151,103 @@ main{
 
 .container-message{
     width: 760px;
-    margin: 40px auto;
+    margin: 0 auto;
 }
 
 .received-messages{
-    text-decoration: underline;
+   background-color: #fff;
+   font-size: 14px;
+   width: 300px;
+   height: 40px;
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-left: 12px;
+   margin-bottom: 20px;
+   margin-top: 30px;
 }
 
 .sent-messages{
-    color: #fff;
+   background-color: #D5F9BB;
+   font-size: 14px;
+   
+   height: 40px;
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-left: 12px;
+   margin-bottom: 20px;
+   margin-top: 30px;
+   flex-wrap: wrap;
 }
+
+.date{
+    width: 70px;
+    height: 22px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 8px;
+    margin-right: 4px;
+    margin-top: 10px;
+}
+
+.row-reverse{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+footer{
+    background-color: #F0EAE7;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #606569;
+    font-size: 20px; 
+}
+
+.right{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #606569;
+    font-size: 20px; 
+}
+
+footer input{
+    width: 700px;
+    height: 38px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 15px;
+}
+
+/* linear-gradient
+ */
+
+ /* background: hsla(0, 0%, 100%, 1);
+
+background: linear-gradient(360deg, hsla(0, 0%, 100%, 1) 77%, hsla(175, 100%, 29%, 1) 77%);
+
+background: -moz-linear-gradient(360deg, hsla(0, 0%, 100%, 1) 77%, hsla(175, 100%, 29%, 1) 77%);
+
+background: -webkit-linear-gradient(360deg, hsla(0, 0%, 100%, 1) 77%, hsla(175, 100%, 29%, 1) 77%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFFFF", endColorstr="#009689", GradientType=1 ); */
+
+
+    

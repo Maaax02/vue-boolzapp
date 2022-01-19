@@ -1,6 +1,9 @@
 new Vue({
     el: '#app',
     data: {
+        currentIndex : 0,
+        search : '',
+        newMessage : '',
         contacts: [
             {
                 name: 'Michele',
@@ -98,6 +101,48 @@ new Vue({
             }else{
                 classList.push('sent-messages');
             }return classList;
+        },
+        mex2: function(element){
+            let classList = [];
+            if (element == 'sent'){
+                classList.push('row-reverse');
+            }else{
+                classList.push('row');
+            }return classList;
+        },
+
+        click : function(index){
+            this.currentIndex = index
+        },
+ 
+         
+        addMessage : function(){
+            if(this.newMessage !== ''){
+
+            this.contacts[this.currentIndex].messages.push({
+                date: '29/07/2002',
+                text: this.newMessage,
+                status: 'sent',
+            })
+            this.newMessage = ''
+            setTimeout(() => {
+                this.contacts[this.currentIndex].messages.push({
+                    date: '29/07/2002',
+                    text: 'ok',
+                    status: 'received',
+                })
+            }, 1100);
         }
+
+        }
+
+    },
+
+    computed : {     
+            filteredChat: function(){
+                return this.contacts.filter((person) => {
+                    return person.name.toLowerCase().match(this.search); 
+                })
+            } 
     }
 })

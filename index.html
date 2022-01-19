@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="path/to/dayjs/dayjs.min.js"></script>
 </head>
 <body>
     <div id="app">
+    
         <div class="container">
             <div class="sidebar">
                 <div class="personal-profile">
@@ -30,10 +32,13 @@
                         <div class="text">Ricevi nuove notifiche di messaggi <span>Attiva notifiche desktop</span></div>
                     </div>
                 </div>
-                <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
-                <div v-for="(person, i) in contacts" class="container-contact">
+                <div class="inner-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" v-model="search">
+                </div>
+                <div v-for="(person, i) in filteredChat" class="container-contact" @click="click(i)">
                     <div class="images">
-                        <img :src="contacts[i].avatar" alt="">{{person.name}}
+                        <img :src="person.avatar" alt=""><span>{{person.name}}</span>
                     </div>
                 </div>
             </div>
@@ -42,24 +47,40 @@
                     <div class="personal-profile">
                         <div class="profile-img">
                             <img src="img/avatar_1.jpg" alt="">
-
+                            
                             <div class="nav-propic-text">
                                 <h5>Michele</h5>
                                 <span class="gray">Ultimo accesso oggi alle:</span>
                             </div>
-
+                            
                         </div>
-
+                        
                         <div class="utilities">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
-                    <div class="container-message">
-                        <div v-for="(testo, k) in contacts[0].messages" :class="mex(status)">{{testo.text}}</div>
+                    <div class="overflow">
+                        <div class="container-message" v-for="(testo, k) in contacts[currentIndex].messages" :class="mex2(testo.status)">
+                            <div :class="mex(testo.status)">
+                                {{testo.text}} 
+                                <div class="date">
+                                    <span>{{testo.date}}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>    
+                </div> 
+                <footer>
+                    <div class="left">
+                        <i class="far fa-smile"></i>
+                    </div>
+                    <input type="text" name="" id="" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
+                    <div class="right">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                </footer>   
             </main>
         </div>
     </div>

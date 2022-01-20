@@ -3,12 +3,37 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* 
+html{
+    background: hsla(0, 0%, 100%, 1);
+
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 81%, hsla(175, 91%, 25%, 1) 81%);
+    
+    background: -moz-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 81%, hsla(175, 91%, 25%, 1) 81%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 81%, hsla(175, 91%, 25%, 1) 81%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#067c73", GradientType=1 );
+} */
 
 .container{
+   
     margin: 0 auto;
-    margin-top: 80px;
     display: flex;
     height: 600px;
+}
+
+#app{
+    background: hsla(0, 0%, 100%, 1);
+
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 81%, hsla(175, 91%, 25%, 1) 81%);
+    
+    background: -moz-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 81%, hsla(175, 91%, 25%, 1) 81%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 81%, hsla(175, 91%, 25%, 1) 81%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#067c73", GradientType=1 );
+    padding-top: 50px;  
 }
 
 .sidebar{
@@ -157,8 +182,9 @@ main{
 .received-messages{
    background-color: #fff;
    font-size: 14px;
-   width: 300px;
-   height: 40px;
+   width: 270px;
+   flex-direction: row;
+   height: 60px;
    border-radius: 10px;
    display: flex;
    align-items: center;
@@ -171,16 +197,13 @@ main{
 .sent-messages{
    background-color: #D5F9BB;
    font-size: 14px;
-   
-   height: 40px;
+   height: 60px;
    border-radius: 10px;
    display: flex;
    align-items: center;
    justify-content: space-between;
    padding-left: 12px;
-   margin-bottom: 20px;
    margin-top: 30px;
-   flex-wrap: wrap;
 }
 
 .date{
@@ -191,7 +214,7 @@ main{
     align-items: flex-end;
     font-size: 8px;
     margin-right: 4px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .row-reverse{
@@ -207,7 +230,7 @@ footer{
     bottom: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;   
 }
 
 .left{
@@ -235,19 +258,6 @@ footer input{
     border-radius: 3px;
     padding-left: 15px;
 }
-
-/* linear-gradient
- */
-
- /* background: hsla(0, 0%, 100%, 1);
-
-background: linear-gradient(360deg, hsla(0, 0%, 100%, 1) 77%, hsla(175, 100%, 29%, 1) 77%);
-
-background: -moz-linear-gradient(360deg, hsla(0, 0%, 100%, 1) 77%, hsla(175, 100%, 29%, 1) 77%);
-
-background: -webkit-linear-gradient(360deg, hsla(0, 0%, 100%, 1) 77%, hsla(175, 100%, 29%, 1) 77%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFFFF", endColorstr="#009689", GradientType=1 ); */
 
 
     

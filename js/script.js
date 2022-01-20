@@ -94,6 +94,11 @@ new Vue({
         
     },
     methods: {
+
+        getprofilePictures : function(){
+
+        },
+
         mex: function(element){
             let classList = [];
             if (element == 'received'){
@@ -107,27 +112,26 @@ new Vue({
             if (element == 'sent'){
                 classList.push('row-reverse');
             }else{
-                classList.push('row');
+                classList.push('');
             }return classList;
         },
 
         click : function(index){
             this.currentIndex = index
         },
- 
-         
+
         addMessage : function(){
             if(this.newMessage !== ''){
 
             this.contacts[this.currentIndex].messages.push({
-                date: '29/07/2002',
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 text: this.newMessage,
                 status: 'sent',
             })
             this.newMessage = ''
             setTimeout(() => {
                 this.contacts[this.currentIndex].messages.push({
-                    date: '29/07/2002',
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     text: 'ok',
                     status: 'received',
                 })
@@ -137,12 +141,4 @@ new Vue({
         }
 
     },
-
-    computed : {     
-            filteredChat: function(){
-                return this.contacts.filter((person) => {
-                    return person.name.toLowerCase().match(this.search); 
-                })
-            } 
-    }
 })

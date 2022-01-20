@@ -7,10 +7,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="path/to/dayjs/dayjs.min.js"></script>
+    
 </head>
 <body>
+ 
     <div id="app">
     
         <div class="container">
@@ -34,10 +36,10 @@
                 </div>
                 <div class="inner-search">
                     <i class="fas fa-search"></i>
-                    <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" v-model="search">
+                    <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" v-model="search" >
                 </div>
-                <div v-for="(person, i) in filteredChat" class="container-contact" @click="click(i)">
-                    <div class="images">
+                <div v-for="(person, i) in contacts" class="container-contact" @click="click(i)">
+                    <div class="images" v-if="person.name.toLowerCase().includes(search)">
                         <img :src="person.avatar" alt=""><span>{{person.name}}</span>
                     </div>
                 </div>
@@ -46,10 +48,10 @@
                 <div class="nav-main">
                     <div class="personal-profile">
                         <div class="profile-img">
-                            <img src="img/avatar_1.jpg" alt="">
+                            <img :src="contacts[currentIndex].avatar" alt="">
                             
                             <div class="nav-propic-text">
-                                <h5>Michele</h5>
+                                <h5>{{contacts[currentIndex].name}}</h5>
                                 <span class="gray">Ultimo accesso oggi alle:</span>
                             </div>
                             
@@ -70,20 +72,21 @@
                                 </div>
                             </div>
                         </div>
+                        <footer>
+                            <div class="left">
+                                <i class="far fa-smile"></i>
+                            </div>
+                            <input type="text" name="" id="" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
+                            <div class="right">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                        </footer>   
                     </div>
                 </div> 
-                <footer>
-                    <div class="left">
-                        <i class="far fa-smile"></i>
-                    </div>
-                    <input type="text" name="" id="" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
-                    <div class="right">
-                        <i class="fas fa-microphone"></i>
-                    </div>
-                </footer>   
             </main>
         </div>
     </div>
     <script src="js/script.js"></script>
 </body>
 </html>
+<!-- v-if="person.name.toLowerCase().includes(search)" -->
